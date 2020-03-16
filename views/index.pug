@@ -4,10 +4,12 @@ block layout-content
   div.View
     h1.Banner RSS
     //- p = `<script>for(t in ${posts}){console.log(t)}</script>}`
+    var posts = #{posts}
     ul
-        each t,i in posts
+        each post in posts
         
-            li= t
+            li= post['title']
+    //- h2 #{posts}
     //- div.Message
     //-   div.Title
     //-     h3 Making the Best

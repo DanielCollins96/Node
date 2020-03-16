@@ -18,8 +18,11 @@ let feedItems = [];
   
     feed.items.forEach(item => {
     //   console.log(item.title + ':' + item.link)
-      let x = item.title 
-      feedItems.push(x);
+      let story = {};
+      story['title'] = item.title;
+      story['link'] = item.link;
+      
+      feedItems.push(story);
     });
   for(i = 0; i < 4; i++) {
       console.log(feedItems[i])
