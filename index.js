@@ -7,7 +7,7 @@ const cors = require('cors');
 let Parser = require('rss-parser');
 let parser = new Parser();
 
-const postRoutes = require('./routes/posts');
+const apiRoutes = require('./routes/api');
 
 // let rssData = require('data.json')
 let title = '';
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
     res.render("index", {title: `${title}`, posts: `${feedItems}`})
 })
 
-app.use('/feed', postRoutes);
+app.use('/feed', apiRoutes);
 
 app.listen(port, (err) => {
     if (err) {

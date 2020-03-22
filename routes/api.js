@@ -39,13 +39,33 @@ router.get('/bc', async (req, res) => {
 router.get('/ontario', async (req, res) => {
     let ontarioPosts = await parser.parseURL('https://news.ontario.ca/newsroom/en/rss/allnews.rss');
     console.log(Object.keys(ontarioPosts))
-    res.send(ontarioPosts.items)
+    let posts = [];
+    ontarioPosts.items.forEach((el) => {
+        let newsObject = {};
+        newsObject['title'] = el.title;
+        newsObject['content'] = el.contentSnippet;
+        newsObject['link'] = el.link;
+        newsObject['author'] = el.author;
+        newsObject['date'] = el.pubDate;
+        posts.push(newsObject);
+    })
+    res.send(posts)
 })
 
 router.get('/manitoba', async (req, res) => {
     let manitobaPosts = await parser.parseURL('https://news.gov.mb.ca/news/index.rss');
     console.log(Object.keys(manitobaPosts))
-    res.send(manitobaPosts.items)
+    let posts = [];
+    manitobaPosts.items.forEach((el) => {
+        let newsObject = {};
+        newsObject['title'] = el.title;
+        //content is empty
+        newsObject['content'] = el.contentSnippet;
+        newsObject['link'] = el.link;
+        newsObject['date'] = el.pubDate;
+        posts.push(newsObject);
+    })
+    res.send(posts)
 })
 
 
