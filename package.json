@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "acorn": "^7.1.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "nodemon": "^2.0.2",
     "pug": "^2.0.4",
     "rss-parser": "^3.7.5"
   },
