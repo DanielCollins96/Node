@@ -10,6 +10,7 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.2",
     "pug": "^2.0.4",
+    "react-router-dom": "^5.1.2",
     "rss-parser": "^3.7.5"
   },
   "devDependencies": {},

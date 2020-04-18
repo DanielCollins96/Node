@@ -1,30 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Nav from './nav';
+import Home from './home/Home';
+import Feed from './feed/Feed';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
 
-  fetch('feed/manitoba')
+  fetch('feed/man')
   .then((res) => res.json())
   .then(data => console.log(data))
   console.log()
   return (
+    <Router>
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/feed/:id" component={Feed} />
+      </Switch>
     </div>
+    </Router>
   );
 }
 

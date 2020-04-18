@@ -3,7 +3,7 @@ const router = express.Router();
 const Parser = require('rss-parser');
 const parser = new Parser();
 
-router.get('/alberta', async (req, res) => {
+router.get('/ab', async (req, res) => {
     let albertaPosts = await parser.parseURL('https://www.alberta.ca/newsroom/newsroom.cfm');
     console.log(Object.values(albertaPosts.items))
     let posts = [];
@@ -36,7 +36,7 @@ router.get('/bc', async (req, res) => {
     res.send( posts )
 })
 
-router.get('/ontario', async (req, res) => {
+router.get('/ont', async (req, res) => {
     let ontarioPosts = await parser.parseURL('https://news.ontario.ca/newsroom/en/rss/allnews.rss');
     console.log(Object.keys(ontarioPosts))
     let posts = [];
@@ -52,7 +52,7 @@ router.get('/ontario', async (req, res) => {
     res.send(posts)
 })
 
-router.get('/manitoba', async (req, res) => {
+router.get('/man', async (req, res) => {
     let manitobaPosts = await parser.parseURL('https://news.gov.mb.ca/news/index.rss');
     console.log(Object.keys(manitobaPosts))
     let posts = [];
