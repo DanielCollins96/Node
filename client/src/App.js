@@ -5,8 +5,8 @@ import Home from './home/Home';
 import Feed from './feed/Feed';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-function App() {
-
+class App extends Component {
+render(){
   fetch('http://localhost:4000/feed/man')
   .then((res) => res.json())
   .then(data => console.log(data))
@@ -24,5 +24,5 @@ function App() {
     </Router>
   );
 }
-
+}
 export default App;
