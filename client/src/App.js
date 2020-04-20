@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
 
-  fetch('feed/man')
+  fetch('http://localhost:4000/feed/man')
   .then((res) => res.json())
   .then(data => console.log(data))
   console.log()
