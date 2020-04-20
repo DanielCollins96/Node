@@ -12,7 +12,7 @@ function Feed() {
             let ppData = await provincePosts.json();
             console.log(typeof ppData);
             setData(ppData)
-            // .then(console.log('lololol'));
+            console.log(ppData)
             if(data.posts){
                 console.log('hihi');
                 console.log(data);
