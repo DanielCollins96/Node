@@ -2,18 +2,20 @@ import React, {useState, useEffect} from 'react';
 import './Feed.css';
 
 function Feed() {
-    const [data, setData] = useState({posts: {} });
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             let provincePosts = await fetch('http://localhost:4000/feed/man');
             console.log(provincePosts);
-            console.log(data.posts)
+            // console.log(data.posts)
             let ppData = await provincePosts.json();
-            console.log(typeof ppData);
+            // console.log(typeof ppData);
             setData(ppData)
+            setIsLoading(false)   
             console.log(ppData)
-            if(data.posts){
+            if(data){
                 console.log('hihi');
                 console.log(data);
             } else {
@@ -23,8 +25,14 @@ function Feed() {
         };
         fetchData();
     }, []);
+
+    // let listItems = () => {
+    //     return <p>hihihi</p>
+    // })
+
     return (
-        <h1>HEY</h1>
+        isLoading ? <div>Loading</div> : <h1>HEY</h1> //{listItems} 
+
 
     );
 }
