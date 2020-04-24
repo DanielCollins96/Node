@@ -16,7 +16,8 @@ router.get('/ab', async (req, res) => {
         newsObject['date'] = el.pubDate;
         posts.push(newsObject);
     })
-    res.send( posts )
+    // console.log(typeof JSON.stringify(posts))
+    res.json( {data: posts} )
     // console.log(albertaPosts);
 })
 

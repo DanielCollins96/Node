@@ -2,22 +2,28 @@ import React, {useState, useEffect} from 'react';
 import './Feed.css';
 
 function Feed() {
+    const [provData, setProvData] = useState([
+        {id: 2, value: "Hello"},
+        {id: 4, value: "Sup"}
+    ]);
     const [ isLoading, setIsLoading ] = useState(false);
-    const [data, setData] = useState([]);
 
+    const testst8 = [
+        {id: 2, value: "Hello"},
+        {id: 4, value: "Sup"}
+    ];
     useEffect(() => {
         const fetchData = async () => {
-            let provincePosts = await fetch('http://localhost:4000/feed/man');
+            let provincePosts = await fetch('http://localhost:4000/feed/ab');
             console.log(provincePosts);
-            // console.log(data.posts)
             let ppData = await provincePosts.json();
-            // console.log(typeof ppData);
-            setData(ppData)
+            console.log(ppData.data);
+            setProvData(ppData.data);
             setIsLoading(false)   
-            console.log(ppData)
-            if(data){
+            if(provData){
                 console.log('hihi');
-                console.log(data);
+                console.log(provData);
+                console.log(isLoading);
             } else {
                 console.log('hohoho')
             }
