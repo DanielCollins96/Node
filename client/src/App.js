@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './nav';
 import Home from './home/Home';
-import Feed from './feed/Feed';
+// import Feed from './feed/Feed';
+import About from './about/About';
 import FeedComp from './feed/feedComp';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -19,8 +20,8 @@ render(){
       <Nav />
       <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/feed/:id" component={Feed} />
-      <Route path="/feedz/:id" component={FeedComp} />
+      <Route path="/about" component={About} />
+      <Route path="/feed/:id" component={FeedComp} />
       </Switch>
     </div>
     </Router>

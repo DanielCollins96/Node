@@ -15,10 +15,11 @@ function Feed() {
     useEffect(() => {
         const fetchData = async () => {
             let provincePosts = await fetch('http://localhost:4000/feed/ab');
-            console.log(provincePosts);
+            // console.log(provincePosts.json());
             let ppData = await provincePosts.json();
             console.log(ppData.data);
-            setProvData(ppData.data);
+            // setProvData(ppData.data);
+            setProvData(provincePosts.data);
             setIsLoading(false)   
             if(provData){
                 console.log('hihi');
@@ -37,7 +38,13 @@ function Feed() {
     // })
 
     return (
-        isLoading ? <div>Loading</div> : <h1>HEY</h1> //{listItems} 
+        // isLoading ? <div>Loading</div> : <h1>HEY</h1> //{listItems} 
+        <div>
+
+        {provData.map(el => {
+            return <p>{el.value}</p>
+        })}
+        </div>
 
 
     );

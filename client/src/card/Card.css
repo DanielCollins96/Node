@@ -1,0 +1,15 @@
+.story {
+    border: black 1px solid;
+    margin: 5px;
+}
+
+.content {
+    text-align: initial;
+}
+
+.options {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-around;
+}

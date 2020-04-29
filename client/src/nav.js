@@ -1,14 +1,14 @@
 import React from 'react';
-import App from './App';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
         <nav>
-            <h2>Provinces</h2>
+            <Link to="/">Provinces</Link>
             <ul className="nav-links">
-                <li>About</li>
-                <li>Login</li>
+                <Link to="/about">About</Link>
+                <Link to="/login">Login</Link>
             </ul>
         </nav>
     );

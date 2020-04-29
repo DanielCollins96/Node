@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
+import Card from '../card/Card';
 
 class feedComp extends React.Component {
     constructor(props){
         super(props);
         console.log(props);
         this.state = {
-            posts: []
+            posts: [],
+            error: false
         }
     }
 
     componentDidMount = () => {
-        fetch('http://localhost:4000/feed/ab')
+        fetch(`http://localhost:4000${this.props.location.pathname}`)
         .then(res => {
-            console.log(res)
             return res.json();
         })
         .then(data => {
-            // const { posts } = { ...this.state };
-             
-            console.log(data.data);
+            let newsPosts = data.slice(0,15)
             this.setState({
-                posts: data.data 
+                posts: newsPosts 
             });
 
         })
+        .catch(err => {
+            console.log(err);
+            this.setState({
+                error: true
+            })
+        })
+    }
+
+    storySelectedHandler = (id) => {
+
     }
 
     render() {
@@ -31,9 +40,7 @@ class feedComp extends React.Component {
         <React.Fragment>
             <h1>Hello</h1>
             {this.state.posts.map(story => {
-                return <p>{story.title}</p>
-                // <p>{story.link}</p>
-                
+                return <Card key={story.id} {...story} />
             })}
         </React.Fragment>
         );

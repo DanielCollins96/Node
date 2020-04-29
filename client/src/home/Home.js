@@ -12,8 +12,8 @@ function home() {
             <li><Link to={'feed/bc'}>British Columbia</Link></li>
             <li><Link to={'feed/ont'}>Ontario</Link></li>
             <li><Link to={'feed/man'}>Manitoba</Link></li>
+            <li><Link to={'feed/sask'}>Saskatchewan</Link></li>
             {/* <Link to={'feed/'}></Link>
-            <Link to={'feed/'}></Link>
             <Link to={'feed/'}></Link>
             <Link to={'feed/'}></Link>
             <Link to={'feed/'}></Link>

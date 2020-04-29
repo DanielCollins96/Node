@@ -10,6 +10,17 @@ nav {
   background: darkred;
 }
 
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 15px;
+
+}
+ul.nav-links {
+  justify-content: flex-end;
+}
+
 .nav-links {
   width: 50%;
   display: flex;
